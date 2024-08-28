@@ -16,7 +16,6 @@ The Job Portal Application addresses common challenges faced by job seekers and 
 
 This platform caters to:
 - **Students** looking for internships and job opportunities.
-- **Alumni** seeking career advice.
 - **CCPS Professionals** managing job postings and analyzing placement data.
 
 ---
