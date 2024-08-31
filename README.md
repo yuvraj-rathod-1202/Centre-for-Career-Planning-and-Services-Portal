@@ -133,9 +133,9 @@ Enjoy your journey with the Job Portal Application! Let's simplify job searching
      ```
    - Start the frontend development server:
      ```bash
-     npm start
+     npm run dev
      ```
 
 4. **Open the application in your browser**:
-   - Navigate to `http://localhost:3000` to view the frontend application.
+   - Navigate to `http://localhost:5173` to view the frontend application.
    - The backend server should be running on `http://localhost:5000` (or the port specified in your `.env` file).
