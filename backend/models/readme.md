@@ -12,7 +12,6 @@ The User model represents the users of the platform, which can be students or CC
 - *Email*: The user's email address, used for authentication.
 - *Password*: A hashed password for securing the user's account.
 - *Role*: Defines the user's role, either as a student or CCPS staff.
-- *Reference Object*: A reference to either the Student model or the CCPS (Center for Career Planning and Services) model, depending on the role.
 
 ### Student
 
@@ -25,6 +24,7 @@ The Student model represents students registered on the platform. It includes th
 - *Student ID*: A unique identifier for each student.
 - *Batch*: The student's batch year (e.g., 2026).
 - *Saved Jobs*: A list of job postings saved by the student for future reference.
+- *Reference Object*: A reference to the User model.
 
 ### Job Posting
 
