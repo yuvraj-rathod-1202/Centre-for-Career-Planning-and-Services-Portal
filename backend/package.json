@@ -1,0 +1,13 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This directory contains all the backend files and folders for the Centre for Career Planning and Services Portal.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server.js"    
+  },
+  "keywords": [],
+  "author": "OPENLAKE",
+  "license": "ISC"
+}

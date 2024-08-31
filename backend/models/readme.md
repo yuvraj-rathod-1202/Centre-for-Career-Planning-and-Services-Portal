@@ -1,110 +1,65 @@
+# Models Directory
 
-
-# Models Directory - Backend
-
-The `models` directory in the `backend` folder defines the database schemas and models used throughout the Job Portal Application. These models represent the structure of the data stored in the database, including users, jobs, applications, and other key entities. Each model is responsible for interacting with the database and performing CRUD (Create, Read, Update, Delete) operations.
+The models directory contains the database schemas and models that define the structure and relationships of the data used in the Career Portal Website for IIT Bhilai's students and the Centre for Career Planning (CCPS).
 
 ## Models Overview
 
-### User Model
+### User
 
-- **File**: `userModel.js`
+The User model represents the users of the platform, which can be students or CCPS staff. This model includes:
 
-- **Purpose**: Defines the schema for user data, including students, CCPS (Campus Career Placement Services), and admins. This model handles user authentication and authorization.
+- *Name*: The name of the user.
+- *Email*: The user's email address, used for authentication.
+- *Password*: A hashed password for securing the user's account.
+- *Role*: Defines the user's role, either as a student or CCPS staff.
+- *Reference Object*: A reference to either the Student model or the CCPS (Center for Career Planning and Services) model, depending on the role.
 
-- **Fields**:
-  - `userId`: Unique identifier for the user (primary key).
-  - `name`: Full name of the user.
-  - `email`: Email address of the user (unique).
-  - `passwordHash`: Hashed password for secure authentication.
-  - `role`: Role of the user (student, CCPS, admin).
-  - `profile`: Additional profile information.
-  - `createdAt`: Timestamp when the user was created.
-  - `updatedAt`: Timestamp when the user details were last updated.
+### Student
 
-- **Relationships**:
-  - One-to-many relationship with `Job` (students can apply to multiple jobs).
-  - One-to-many relationship with `Application` (students can have multiple applications).
+The Student model represents students registered on the platform. It includes the following fields:
 
-### Job Model
+- *Discipline*: The student's academic discipline.
+- *Job Status*: Indicates whether the student is seeking jobs off-campus.
+- *Job Reference ID*: A reference to the Job Posting model for applied jobs.
+- *Status*: Current status of the student (e.g., active, graduated).
+- *Student ID*: A unique identifier for each student.
+- *Batch*: The student's batch year (e.g., 2026).
+- *Saved Jobs*: A list of job postings saved by the student for future reference.
 
-- **File**: `jobModel.js`
+### Job Posting
 
-- **Purpose**: Defines the schema for job postings, including details about the job and associated metadata.
+The Job Posting model represents job opportunities available through the portal. This model includes:
 
-- **Fields**:
-  - `jobId`: Unique identifier for the job (primary key).
-  - `title`: Job title.
-  - `description`: Detailed job description.
-  - `company`: Name of the company offering the job.
-  - `location`: Job location.
-  - `skillsRequired`: List of required skills for the job.
-  - `eligibility`: Eligibility criteria for applying.
-  - `postedBy`: Reference to the user who posted the job.
-  - `createdAt`: Timestamp when the job was posted.
-  - `updatedAt`: Timestamp when the job details were last updated.
-  - `expiryDate`: Date when the job posting expires.
+- *Job Title*: The title of the job position.
+- *Job Description*: A detailed description of the job.
+- *Company*: The name of the company offering the job.
+- *Required Skills*: A list of skills required for the job.
+- *Type*: Indicates whether the job is on-campus or off-campus.
+- *Batch*: The target batch for the job posting (e.g., 2026).
+- *Deadline*: The application deadline for the job.
+- *Application Link*: A link to apply for the job if it’s off-campus.
+- *Expiry*: The expiration date for the job posting, with a maximum duration of 2 months.
+- *Author*: Reference to the user who posted the job (likely a CCPS staff member).
+- *Relevance Score*: A score indicating the relevance of the job to the student's profile.
 
-- **Relationships**:
-  - Many-to-one relationship with `User` (jobs are posted by users, typically CCPS or admins).
-  - One-to-many relationship with `Application` (jobs can have multiple applications).
+### Job Application
 
-### Application Model
+The Job Application model represents the application process for jobs posted on the portal. This model includes:
 
-- **File**: `applicationModel.js`
+- *Job Reference ID*: A reference to the Job Posting model to which the application is linked.
+- *Applications*: An array of objects, each containing a reference to a Student model and the application status (e.g., pending, accepted, rejected).
 
-- **Purpose**: Defines the schema for job applications, tracking the status and details of each application.
+### Alumni
 
-- **Fields**:
-  - `applicationId`: Unique identifier for the application (primary key).
-  - `jobId`: Reference to the job being applied for.
-  - `studentId`: Reference to the student applying for the job.
-  - `status`: Current status of the application (e.g., applied, accepted, rejected).
-  - `resumeUrl`: URL to the student’s resume.
-  - `coverLetter`: Cover letter submitted with the application.
-  - `submittedAt`: Timestamp when the application was submitted.
+The Alumni model represents former students who are now part of the alumni network. This model includes:
 
-- **Relationships**:
-  - Many-to-one relationship with `Job` (each application is associated with a specific job).
-  - Many-to-one relationship with `User` (applications are submitted by students).
+- *Name*: The name of the alumnus.
+- *Company*: The company where the alumnus is currently employed.
+- *LinkedIn*: The LinkedIn profile link of the alumnus.
+- *Institute ID*: A unique identifier for the alumnus.
+- *Mobile Number*: The contact number of the alumnus, shared if they have agreed.
+- *Email*: The email address of the alumnus.
 
-### Referral Model
+---
 
-- **File**: `referralModel.js`
-
-- **Purpose**: Defines the schema for community referrals, including details about the referral and associated job postings.
-
-- **Fields**:
-  - `referralId`: Unique identifier for the referral (primary key).
-  - `referrerId`: Reference to the user who made the referral.
-  - `jobId`: Reference to the job being referred.
-  - `details`: Details about the referral.
-  - `createdAt`: Timestamp when the referral was created.
-  - `updatedAt`: Timestamp when the referral details were last updated.
-
-- **Relationships**:
-  - Many-to-one relationship with `User` (referrals are made by users).
-  - Many-to-one relationship with `Job` (referrals are associated with specific job postings).
-
-### Alumni Model
-
-- **File**: `alumniModel.js`
-
-- **Purpose**: Defines the schema for storing alumni details, including their profiles and connections to job postings.
-
-- **Fields**:
-  - `alumniId`: Unique identifier for the alumni (primary key).
-  - `name`: Full name of the alumni.
-  - `email`: Email address of the alumni.
-  - `graduationYear`: Year of graduation.
-  - `currentPosition`: Current job position of the alumni.
-  - `company`: Company where the alumni is currently employed.
-  - `profileLink`: Link to the alumni’s profile.
-  - `createdAt`: Timestamp when the alumni record was created.
-  - `updatedAt`: Timestamp when the alumni record was last updated.
-
-- **Relationships**:
-  - Many-to-many relationship with `Job` (alumni can be linked to multiple job postings).
-
-
-
+Each model is essential to the functionality of the Career Portal, ensuring that data is well-structured and accessible for both students and CCPS staff.

@@ -84,3 +84,58 @@ For detailed documentation on API endpoints, component usage, and database schem
 Enjoy your journey with the Job Portal Application! Let's simplify job searching and career management together. 🌐🚀
 
 
+## Getting Started
+
+### Prerequisites
+
+- *Node.js*: Ensure you have Node.js installed.
+- *npm*: Node Package Manager for managing dependencies.
+- *MongoDB Atlas*: The project uses MongoDB as the database.
+- *ReactJs*: Ensure you have ReactJs installed
+
+### Steps to Set Up Development Environment
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/your-username/career-portal-iitbhilai.git
+   cd career-portal-iitbhilai
+   ```
+
+2. **Set up the backend**:
+
+   - Change to the backend directory:
+     ```bash
+     cd backend
+     ```
+   - Install backend dependencies:
+     ```bash
+     npm install
+     ```
+   - Set up environment variables:
+     - Create a `.env` file in the `backend` directory.
+     - Add the necessary environment variables as specified in the `.env.example` file.
+   
+   - Start the backend server:
+     ```bash
+     npm run dev
+     ```
+
+3. **Set up the frontend**:
+
+   - Open a new terminal and change to the frontend directory:
+     ```bash
+     cd frontend
+     ```
+   - Install frontend dependencies:
+     ```bash
+     npm install
+     ```
+   - Start the frontend development server:
+     ```bash
+     npm start
+     ```
+
+4. **Open the application in your browser**:
+   - Navigate to `http://localhost:3000` to view the frontend application.
+   - The backend server should be running on `http://localhost:5000` (or the port specified in your `.env` file).
