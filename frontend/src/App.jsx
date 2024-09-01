@@ -15,7 +15,6 @@ function App() {
     // </Routes>
     <div>
       <SavedApplications/>
-
       {/* <Navbar/>
      <SignInForm />
       <Footer /> */}
