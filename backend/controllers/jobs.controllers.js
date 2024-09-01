@@ -97,6 +97,7 @@ export const jobDelete = async (req, res) => {
     }
 };
 
+
 export const jobList = async (req, res) => {
     try {
         const jobPostings = await JobPosting.find();
@@ -111,3 +112,4 @@ export const jobList = async (req, res) => {
         });
     }
 };
+
