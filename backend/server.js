@@ -7,8 +7,14 @@ import router from "./routes/router.js";
 import dotenv from "dotenv";
 dotenv.config({});
 
-//this is the application
+
 const app = express();
+
+//middleware
+app.use(express.json());
+
+//this is the application
+
 
 //this is the port number
 const port = 3000;
