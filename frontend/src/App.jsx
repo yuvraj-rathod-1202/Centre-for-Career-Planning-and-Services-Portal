@@ -3,12 +3,18 @@ import Footer from './components/Footer';
 import './index.css'; // Ensure Tailwind CSS is imported
 import SignInForm from './components/SignInForm';
 import Navbar from './components/Navbar';
+import SavedApplications from './pages/Savedapplications';
+import { Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 
 function App() {
   return (
+    // <Routes>
+    //   <Route path='/' element={<Sidebar/>}></Route>
+    //   <Route path='/saved-applications' element={<SavedApplications/>}></Route>
+    // </Routes>
     <div>
-      <Sidebar/> {/* for testing purposes */}
+      <SavedApplications/>
       {/* <Navbar/>
      <SignInForm />
       <Footer /> */}
