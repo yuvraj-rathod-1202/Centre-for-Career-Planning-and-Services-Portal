@@ -47,3 +47,29 @@ export const jobCreate = async (req, res) => {
         });
     }
 };
+
+
+export const jobUpdate = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const updatedData = req.body;
+        const updatedJobPosting = await JobPosting.findByIdAndUpdate(id, updatedData, {
+            new: true, // Return the updated document
+            runValidators: true // Ensure the updated data adheres to the schema
+        });
+        if (!updatedJobPosting) {
+            return res.status(404).json({
+                message: 'Job posting not found'
+            });
+        }
+        res.status(200).json({
+            message: 'Job posting updated successfully',
+            job: updatedJobPosting
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error updating job posting',
+            error: error.message
+        });
+    }
+};
