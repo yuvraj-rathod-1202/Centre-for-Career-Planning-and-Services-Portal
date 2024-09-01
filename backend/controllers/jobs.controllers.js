@@ -73,3 +73,43 @@ export const jobUpdate = async (req, res) => {
         });
     }
 };
+
+
+
+export const jobDelete = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedJobPosting = await JobPosting.findByIdAndDelete(id);
+        if (!deletedJobPosting) {
+            return res.status(404).json({
+                message: 'Job posting not found'
+            });
+        }
+        res.status(200).json({
+            message: 'Job posting deleted successfully',
+            job: deletedJobPosting
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error deleting job posting',
+            error: error.message
+        });
+    }
+};
+
+
+export const jobList = async (req, res) => {
+    try {
+        const jobPostings = await JobPosting.find();
+        res.status(200).json({
+            message: 'Job postings retrieved successfully',
+            jobs: jobPostings
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error retrieving job postings',
+            error: error.message
+        });
+    }
+};
+
