@@ -111,3 +111,72 @@ export const jobList = async (req, res) => {
         });
     }
 };
+
+import JobPosting from '../models/jobPosting.js';
+
+export const jobRelevanceScoreUpvote = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        // Find the job posting by ID
+        const jobPosting = await JobPosting.findById(id);
+
+        if (!jobPosting) {
+            return res.status(404).json({
+                message: 'Job posting not found'
+            });
+        }
+
+        // Increment the relevanceScore by 1
+        jobPosting.relevanceScore += 1;
+
+        // Save the updated job posting
+        await jobPosting.save();
+
+        // Send a success response
+        res.status(200).json({
+            message: 'Relevance score upvoted successfully',
+            job: jobPosting
+        });
+    } catch (error) {
+        // Send an error response if something goes wrong
+        res.status(500).json({
+            message: 'Error updating relevance score',
+            error: error.message
+        });
+    }
+};
+
+
+export const jobRelevanceScoreDownvote = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        // Find the job posting by ID
+        const jobPosting = await JobPosting.findById(id);
+
+        if (!jobPosting) {
+            return res.status(404).json({
+                message: 'Job posting not found'
+            });
+        }
+
+        // Decrement the relevanceScore by 1
+        jobPosting.relevanceScore -= 1;
+
+        // Save the updated job posting
+        await jobPosting.save();
+
+        // Send a success response
+        res.status(200).json({
+            message: 'Relevance score downvoted successfully',
+            job: jobPosting
+        });
+    } catch (error) {
+        // Send an error response if something goes wrong
+        res.status(500).json({
+            message: 'Error updating relevance score',
+            error: error.message
+        });
+    }
+};
