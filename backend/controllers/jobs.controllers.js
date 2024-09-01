@@ -96,3 +96,18 @@ export const jobDelete = async (req, res) => {
         });
     }
 };
+
+export const jobList = async (req, res) => {
+    try {
+        const jobPostings = await JobPosting.find();
+        res.status(200).json({
+            message: 'Job postings retrieved successfully',
+            jobs: jobPostings
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error retrieving job postings',
+            error: error.message
+        });
+    }
+};
