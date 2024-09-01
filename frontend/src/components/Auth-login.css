@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Properties of the box contian all the elenments */
+.bigcontainer{
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    
+
+}
+.leftcontainer{
+    width: 50%;
+    height: 100%;
+    /* border: 2px solid black; */
+    background-color: aquamarine;
+    /* background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+.container{
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    background-color: aliceblue;
+    
+    /* box-shadow:  0px 0px 100px rgb(26, 255, 0); */
+    width: 35rem;
+    height: 40rem;
+    
+    padding: 2rem;
+
+}
+#Appname{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding-bottom: 2rem;
+    color: #0367A6;
+
+}
+.text{
+    font-size: 1.1rem;
+    padding-bottom: 3rem ;
+    font-weight: 500;
+
+}
+.boxes{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+.Email{
+
+    border: 3px solid black;
+    border-radius: 5px;
+    height: 2rem;
+    padding: 1rem;
+
+}
+#login{
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 5px;
+    text-align: center;
+    height: 2rem;
+    margin-bottom: 5rem;
+
+
+}
+a{
+    text-decoration: none; 
+    color: #05F2DB;
+
+}
+#forgot{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    
+
+}
+#button{
+    border: none;
+    background-color: white;
+    margin-top: 0.35rem;
+    font-weight: 600;
+    font-family: 'Lato', sans-serif;
+    
+}
+
+#lastpara{
+    display: flex;
+    justify-content: center;
+}
+@media  (max-width:1150px) {
+    .leftcontainer{
+        width: 100%;
+        height: 100%;
+        /* border: 2px solid black; */
+        background-color: aquamarine;
+        /* background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); */
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    
+    }
+}
+p{
+    color: #0367A6;
+}
