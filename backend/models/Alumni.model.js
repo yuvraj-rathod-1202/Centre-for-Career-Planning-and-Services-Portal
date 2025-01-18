@@ -11,17 +11,18 @@ const alumniSchema = new mongoose.Schema({
     linkedin:{
         type: String,
     },
-    InstituteId:{
+    instituteId:{
         type: String,
         required: true
     },
-    MobileNumber:{
+    mobileNumber:{
         type:Number,
         required:true
     },
-    Email:{
+    email:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     }
 })
 

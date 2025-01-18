@@ -20,7 +20,9 @@ app.use(express.json());
 const port = 3000;
 
 //apis
+import alumniRoute from "./routes/alumni.route.js";
 app.use("/api", router);
+app.use("/api/alumni", alumniRoute);
 
 //listener
 app.listen(port, () => {

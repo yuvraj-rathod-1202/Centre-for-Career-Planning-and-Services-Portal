@@ -1,8 +1,8 @@
 //importing all the necessary dependencies 
 import express from "express";
-import {jobCreate,jobUpdate,jobRelevanceScoreUpvote,jobRelevanceScoreDownvote} from "../controllers/jobs.controllers.js"
+import {jobCreate,jobUpdate,jobRelevanceScoreUpvote,jobRelevanceScoreDownvote, jobDelete, jobList} from "../controllers/jobs.controllers.js"
 import { ViewRes } from "../controllers/studentview.js";
-import SavedApplications from "../../frontend/src/pages/Savedapplications.jsx";
+
 
 //using the router
 const router = express.Router();
