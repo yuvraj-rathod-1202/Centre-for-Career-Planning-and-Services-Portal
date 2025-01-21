@@ -21,8 +21,10 @@ const port = 3000;
 
 //apis
 import alumniRoute from "./routes/alumni.route.js";
+import userRouter from "./routes/user.route.js";
 app.use("/api", router);
 app.use("/api/alumni", alumniRoute);
+app.use("/api/users", userRouter);
 
 //listener
 app.listen(port, () => {

@@ -114,7 +114,6 @@ export const jobList = async (req, res) => {
 };
 
 
-
 export const jobRelevanceScoreUpvote = async (req, res) => {
     try {
         const { id } = req.params;
